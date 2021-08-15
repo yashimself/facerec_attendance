@@ -1,2 +1,2 @@
-# facerec_attendance
+# face_attendance
 Facial recognition based attendance system
