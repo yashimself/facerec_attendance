@@ -10,7 +10,7 @@ images = []  # LIST CONTAINING ALL THE IMAGES
 className = []  # LIST CONTAINING ALL THE CORRESPONDING CLASS Names
 myList = os.listdir(path)
 UnknownCount = 0
-print("Total Classes Detected:", len(myList))
+# print("Total Classes Detected:", len(myList),"\n",myList)
 for x, cl in enumerate(myList):
     curImg = cv2.imread(f'{path}/{cl}')
     images.append(curImg)
