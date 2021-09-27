@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 import os
 from datetime import datetime, time
+from playsound import playsound
+
 
 path = '.resources/prefaces'
 postpath = '.resources/facescap'
@@ -10,7 +12,8 @@ images = []  # LIST CONTAINING ALL THE IMAGES
 className = []  # LIST CONTAINING ALL THE CORRESPONDING CLASS Names
 myList = os.listdir(path)
 UnknownCount = 0
-# print("Total Classes Detected:", len(myList),"\n",myList)
+audio = './.resources/audio/detect.mp3'
+
 for x, cl in enumerate(myList):
     curImg = cv2.imread(f'{path}/{cl}')
     images.append(curImg)
@@ -48,6 +51,7 @@ def record(name):
             timern = now.strftime("%H:%M:%S")
             cv2.imwrite((postpath + '/' + (name + "_" + timern)) + ".jpg", img)
             f.writelines(f'\n{name},{timern}')
+            playsound(audio)
 
 
 encodeListKnown = findEncodings(images)
